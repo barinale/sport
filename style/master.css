@@ -1,0 +1,246 @@
+*{padding:0;margin:0;box-sizing: border-box;font-family: sans-serif;}
+ul{list-style: none;}
+a{text-decoration: none;}
+.contenair{width:95%;margin:auto;}
+:root{--main-color:#DB325A;
+      --secound-color:#323232;
+      --therd-color:#808080;}
+input[type="checkbox"]{display: none;}
+/*header*/
+header {
+  background-image: url("../img/b1.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:100vh;
+  width:100%;
+  position: relative;
+}
+header:after{
+  content:"";
+  height:100vh;
+  width:100%;
+  left:0;
+  top:0;
+  background-color:var(--secound-color);
+  opacity: 0.4;
+  position: absolute;
+  z-index: 1;
+}
+.contentheader:after{
+  content:"";
+  position: absolute;
+  height:80px;
+  width:100%;
+  background:var(--therd-color);
+  left:0;
+  top:0;
+  opacity:.3;
+  z-index: 1;
+
+}
+header .header{
+    position: relative;
+    height:80px;
+    z-index: 5;
+}
+header .header .contentheader{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height:80px;
+
+}
+
+header .header .title a{
+  font-weight: 100;
+  color:#FFFFFF;
+  font-size: 30px;
+}
+
+header .header .title  span{
+  color:var(--main-color);
+  font-size: 50px;
+  position: relative;
+  top:8px;
+
+}
+header .header .nav,header .header .title{
+    z-index:2;
+}
+header .header .nav{
+  align-self: center;
+  display:flex;
+  position: relative;
+}
+header .header .nav label[for="menubar"] {
+  width:35px;
+  height:20px;
+  display: inline-block;
+  order: 2;
+}
+header .header .nav label[for="menubar"] span{
+  display:block;
+  width:30px;
+  height:4px;
+  background: white;
+  margin: 2px;
+  border-radius: 15%;
+}
+header .header .nav input:checked + nav{
+  height:280px;
+  opacity:1;
+  transition: 0.5s all;
+  position: absolute;
+
+}
+header .header .nav nav{
+  position: absolute;
+  right:35px;
+  top:50px;
+  padding-left:0.4em;
+  box-sizing: border-box;
+  height:0px;
+  opacity:0;
+  overflow: hidden;
+  transition: 0.5s all;
+  width: 200px;
+  z-index: 15;
+}
+header .header .nav nav:before{
+  content:"";
+  position:absolute;
+  height:100%;
+  width:100%;
+  background:var(--therd-color);
+  opacity:.3;
+}
+
+header .header .nav nav > ul{
+  padding:.3em;
+  height: 280px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 13;
+  position: relative;
+}
+header .header .nav nav > ul #active{
+  color:var(--main-color);
+}
+header .header .nav nav > ul a:hover{
+  color:var(--main-color);
+  transition: 0.3s all;
+}
+header .header .nav nav > ul *{
+margin:12px 0;
+color:white;
+text-transform: uppercase;
+font-weight: 100;
+}
+header .header .nav nav > ul >li >ul>li{
+  margin-left:15px;
+}
+header .textheader{
+  position: absolute;
+  text-align: center;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%);
+  min-width:350px;
+  min-height:10px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+header .textheader *{
+  margin-top: 6px;
+}
+header .textheader .text span{
+  font-weight: 100;
+  font-size: .9rem;
+  color:white;
+}
+header .textheader .text span > span{
+  color:var(--main-color);
+}
+header .textheader .text h1{
+  font-weight: 600;
+    letter-spacing: 3px;
+}
+header .textheader .text a{
+    padding:1em 2em;
+    border: 3px solid var(--main-color);
+    display: inline-block;
+    color:white;
+    transition:  .3s background;
+
+}
+header .textheader .text a:hover{
+  background:var(--main-color);
+  transition:  .3s background;
+}
+
+header .boxelemnts{
+width:100%;
+min-height: 600px;
+z-index: 3;
+background:white;
+position: absolute;
+bottom: 0;
+transform: translateY(90%);
+}
+header .boxelemnts .insidebox{
+
+}
+header .boxelemnts nav{
+
+  width: 100%;
+}
+header .boxelemnts nav ul{
+  display:flex;
+    width:100%;
+    justify-content: space-around;
+    background:var(--secound-color);
+
+}
+header .boxelemnts nav ul li{
+  color:white;
+  width:100%;
+}
+header .boxelemnts nav ul li a{
+  color:white;
+  padding:1.4em 0em;
+  display: inline-block;
+  width:100%;
+  text-align: center;
+  transition: 0.3s background;
+  font-size: 1.1em;
+}
+header .boxelemnts nav ul li a:hover{
+  background:var(--main-color);
+  transition: 0.3s background;
+}
+header .boxelemnts nav ul li #active1{
+  background:var(--main-color);
+}
+header .boxelemnts section article .item{
+  display: flex;
+  flex-wrap: wrap;
+}
+header .boxelemnts section article .item .itm{
+  width:100%;
+  display: grid;
+  grid-template-columns:10px 1fr 1fr 1fr 10px;
+  grid-template-areas: ". title . button ."
+                        ". box box box . ";
+}
+header .boxelemnts section article .item .itm .title{
+  grid-area: title;
+}
+header .boxelemnts section article .item .itm .buttons{
+  grid-area: button;
+}
+header .boxelemnts section article .item .itm .slider{
+  grid-area: box;
+}
+
+/*Fin HEADER*/
