@@ -1,4 +1,5 @@
-*{padding:0;margin:0;box-sizing: border-box;font-family: sans-serif;}
+*{padding:0;margin:0;box-sizing: border-box;font-family: sans-serif;
+  }
 ul{list-style: none;}
 a{text-decoration: none;}
 .contenair{width:95%;margin:auto;}
@@ -6,6 +7,16 @@ a{text-decoration: none;}
       --secound-color:#323232;
       --therd-color:#808080;}
 input[type="checkbox"]{display: none;}
+#buttons span{border:solid black;padding:2px;display: inline-block;
+            border-width: 0 1px 1px 0;position: relative;top:-3px;}
+#buttons >div:hover{background: var(--main-color);}
+#buttons >div:hover span{border-color: white;}
+#buttons > div{display: inline-block;border: 3px solid var(--main-color);padding:3px 8px;}
+#right{ transform: rotate(-45deg);}
+#left{ transform: rotate(135deg);}
+body{overflow-x:  hidden;}
+h4,h3,h2,h1{font-weight: 100;font-size: 1.2rem;}
+p{font-size: .9rem;}
 /*header*/
 header {
   background-image: url("../img/b1.jpg");
@@ -187,12 +198,12 @@ background:white;
 position: absolute;
 bottom: 0;
 transform: translateY(90%);
+
 }
 header .boxelemnts .insidebox{
 
 }
 header .boxelemnts nav{
-
   width: 100%;
 }
 header .boxelemnts nav ul{
@@ -222,17 +233,28 @@ header .boxelemnts nav ul li a:hover{
 header .boxelemnts nav ul li #active1{
   background:var(--main-color);
 }
+header .boxelemnts section{
+  margin-top:30px;
+
+}
+
 header .boxelemnts section article .item{
   display: flex;
   flex-wrap: wrap;
+  width:100%;
+  box-sizing: content-box;
+  padding:5px;
 }
 header .boxelemnts section article .item .itm{
   width:100%;
   display: grid;
-  grid-template-columns:10px 1fr 1fr 1fr 10px;
-  grid-template-areas: ". title . button ."
-                        ". box box box . ";
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: repeat(3,minmax(20px,auto));
+  grid-template-areas: "title . button "
+                        ". . . "
+                        "box box box  ";
 }
+
 header .boxelemnts section article .item .itm .title{
   grid-area: title;
 }
@@ -242,5 +264,45 @@ header .boxelemnts section article .item .itm .buttons{
 header .boxelemnts section article .item .itm .slider{
   grid-area: box;
 }
+header .boxelemnts section article .item .itm .slider{
+  display: flex;
+  width:400%;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+header .boxelemnts section article .item .itm .slider .text{
+  padding:10px;
+  margin-left:100px;
+}
 
+header .boxelemnts section article .item .itm .slider .boxtext{
+  width:100%;
+  min-height: 130px;
+
+}
+header .boxelemnts section article .item .itm .slider .boxtext .img{
+  height:100px;
+  width:100px;
+  border-radius: 50%;
+  background:var(--main-color);
+  float: left;
+}
+header .boxelemnts section article .item .contact{
+  width:100%;
+  padding:10px;
+}
+header .boxelemnts section article .item .contact *{
+  margin:18px 0;
+}
+
+header .boxelemnts section article .item .contact .title{
+  margin:15px 0;
+}
+header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
+    color:var(--main-color);
+}
 /*Fin HEADER*/
+#awesometheme{
+  clear: both;
+  margin-top: 600px;
+}
