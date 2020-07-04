@@ -15,20 +15,20 @@ input[type="checkbox"]{display: none;}
 #right{ transform: rotate(-45deg);}
 #left{ transform: rotate(135deg);}
 
-body{overflow-x:  hidden;}
+/* body{overflow-x:  hidden;} */
 h4,h3,h2,h1{font-weight: 100;font-size: 1.2rem;}
 p{font-size: .9rem;}
 
 #line{width:100%;height:10px;position: relative;}
 #line span:nth-child(1){position: absolute;width:80%;
-  left:10%;top:4px;border-bottom: 1px solid white;}
+  left:10%;top:4px;border-bottom: 1px solid white;z-index: 1;}
 #line span:nth-child(2){
   border-bottom: 3px solid var(--main-color);
   border-radius:  100px 100px;
   width:30%;
   position: absolute;
   left:50%;
-  top:50%;
+  top:50%;z-index: 2;
   transform: translate(-50%,-50%);
 }
 /*header*/
@@ -263,11 +263,11 @@ header .boxelemnts section article .item{
 header .boxelemnts section article .item .itm{
   width:100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-columns:1em 1fr 1fr 1fr ;
   grid-template-rows: repeat(3,minmax(20px,auto));
-  grid-template-areas: "title . button "
-                        ". . . "
-                        "box box box  ";
+  grid-template-areas: " .title . button "
+                        ". . . . "
+                        ". box box box  ";
 }
 
 header .boxelemnts section article .item .itm .title{
@@ -339,15 +339,19 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
   z-index:-1 ;
 }
 #awesometheme article{
-  margin-top:600px;
+  margin:600px auto 0 auto;
   z-index: 3;
   font-size: 2rem;
   text-align: center;
   color:white;
+  width:80%;
+
+
 }
 #awesometheme article h1{
   font-size: 1.2em;
   font-weight: 300;
+
 }
 #awesometheme article h3 {
   margin-top:10px;
@@ -359,16 +363,16 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
 }
 #awesometheme article p{
   margin-top: 19px;
-  font-weight: 300;
+  font-weight: 100;
 }
 #awesometheme article a{
   font-size:0.4em;
-  padding:0.6em 2em;
+  padding:1em 2em;
   border:2px solid var(--main-color);
   display: inline-block;
   color:white;
   font-weight: 700;
-  margin:10px 0;
+  margin:20px 0;
   text-transform: uppercase;
 }
 #awesometheme article a:hover{
@@ -377,15 +381,66 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
 /**FIn awesometheme***/
 #upcomingEvenets {
   background:#323232;
-  text-align: center;
   width:100%;
+  padding-top: 25px;
+  overflow: hidden;
 }
 #upcomingEvenets .header h1{
   font-size:2rem;
   font-weight: 100;
   color: white;
+  text-align: center;
 }
 #upcomingEvenets .header h1 span{
   font-weight: bold;
   letter-spacing: -2px;
+}
+#upcomingEvenets article .items{
+  display: flex;
+  justify-content: space-around;
+}
+#upcomingEvenets article .item{
+  min-width:85%;
+  background:white;
+  margin:30px 15px;
+}
+#upcomingEvenets article .item .img{
+  width:100%;
+  height:250px;
+  background:var(--main-color);
+}
+#upcomingEvenets article .item .info{
+
+  }
+#upcomingEvenets article .item .info h3{
+  background:var(--main-color);
+  padding:0.6em 1.5em;
+  color:white;
+  font-size: 100;
+  text-align: left;
+}
+#upcomingEvenets article .item .info ul{
+ padding:0.4em 1.5em;
+   margin:20px 0;
+  }
+#upcomingEvenets article .item .info ul li {
+      padding:0.6em 0;
+  }
+#upcomingEvenets article .item .info ul li:nth-child(1){
+      font-weight: 100;
+      color:var(--therd-color);
+  }
+#upcomingEvenets article .item .info ul li:not(:nth-child(3)){
+
+  border-bottom: 1px solid black;
+}
+#upcomingEvenets article .item .info ul li:nth-child(3){
+  color:var(--main-color);
+}
+#upcomingEvenets #buttons{
+  text-align: center;
+  margin:20px 0;
+}
+#upcomingEvenets #buttons div span{
+  border-color: white;
 }
