@@ -5,7 +5,8 @@ a{text-decoration: none;}
 .contenair{width:95%;margin:auto;}
 :root{--main-color:#DB325A;
       --secound-color:#323232;
-      --therd-color:#808080;}
+      --therd-color:#808080;
+      --foor-color:#323232;}
 input[type="checkbox"]{display: none;}
 #buttons span{border:solid black;padding:2px;display: inline-block;
             border-width: 0 1px 1px 0;position: relative;top:-3px;}
@@ -380,7 +381,7 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
 }
 /**FIn awesometheme***/
 #upcomingEvenets {
-  background:#323232;
+  background:var(--foor-color);
   width:100%;
   padding-top: 25px;
   overflow: hidden;
@@ -447,6 +448,7 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
 /**fin upcomingEvenets****/
 #trainer{
   padding:1em 0.51em;
+  background:var(--main-color);
 }
 #trainer article .header{
 padding:0.2em 0.5em;
@@ -459,6 +461,64 @@ margin:15px 0;
 #trainer article .header h1 strong{
   font-weight:  900;
 }
-#trainer article section .item{
+#trainer article section .items{
+  max-height:1000px;
+  overflow: hidden;
+}
 
+#trainer article section .item{
+  min-height:200px;
+  width:100%;
+  background:var(--foor-color);
+  display: flex;
+  flex-direction: column;
+  margin:1.5em 0;
+}
+#trainer article section .item:nth-child(odd){
+  background:white;
+}
+#trainer article section .item:nth-child(odd) .info{
+  color:var(--foor-color);
+}
+#trainer article section .item .image{
+  width:100%;
+  height:280px;
+  background:var(--main-color);
+}
+#trainer article section .item .info{
+  padding:0.5em 1em;
+  color: white;
+}
+#trainer article section .item .info *{
+  margin:7px 0;
+}
+#trainer article section .item .info h6{
+  color:var(--main-color);
+}
+#trainer article section .item .info p{
+  padding:0.6em 0;
+}
+#trainer article section #buttons{
+  text-align: center;
+  padding:1em 0em;
+}
+#trainer article section #buttons #right{
+  transform: rotate(45deg);
+  border-color: var(--foor-color);
+}
+#trainer article section #buttons #left{
+  transform: rotate(-135deg);
+  border-color: var(--foor-color);
+}
+#trainer article section #buttons >div:hover{background:white;}
+#trainer article section #buttons >div{
+  background: var(--main-color);
+border-color: white;}
+
+#trainer article #trainerinfo{
+  width:90%;
+margin:auto;
+text-align: left;}
+#trainer article section #trainerinfo .catori{
+text-align: left;
 }
