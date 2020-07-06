@@ -450,13 +450,14 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
   padding:1em 0.51em;
   background:var(--main-color);
 }
-#trainer article .header{
+#trainer article > .header{
 padding:0.2em 0.5em;
   text-align: center;
 }
 #trainer article .header h1{
 font-size: 1.6rem;
 margin:15px 0;
+color:white;
 }
 #trainer article .header h1 strong{
   font-weight:  900;
@@ -465,7 +466,13 @@ margin:15px 0;
   max-height:1000px;
   overflow: hidden;
 }
+#trainer article .header #line span:nth-child(1){
+ opacity:0.3;
+}
+#trainer article .header #line span:nth-child(2){
+  border-color: white;
 
+}
 #trainer article section .item{
   min-height:200px;
   width:100%;
@@ -515,10 +522,90 @@ margin:15px 0;
   background: var(--main-color);
 border-color: white;}
 
-#trainer article #trainerinfo{
+#trainerinfo{
   width:90%;
 margin:auto;
-text-align: left;}
-#trainer article section #trainerinfo .catori{
 text-align: left;
+width:340px;}
+#trainerinfo .header {
+color:white;
+}
+#trainerinfo .header:hover{
+  background:white;
+  color:var(--main-color);
+}
+
+#trainerinfo .categorie .catori .text{
+  color:white;
+  min-height: 150px;
+
+}
+#trainerinfo .categorie .catori .text .img{
+  height:100px;
+  width:100px;
+  border-radius: 50%;
+  background: white;
+  float:left;
+}
+#trainerinfo .categorie .catori .text .texts{
+float:right;
+width:65%;
+}
+#trainerinfo .categorie .catori .text .texts a{
+  padding: 0.4em 1.4em;
+  background:white;
+  color:black;
+  display: inline-block;
+text-transform: uppercase;
+font-size: 0.8rem;
+}
+/****FIN trainerinfo*******/
+#membership{
+background:var(--foor-color);
+padding:1em 0;
+}
+
+#membership article > .header{
+padding:0.2em 0.5em;
+  text-align: center;
+}
+#membership article .header h1{
+font-size: 1.6rem;
+margin:15px 0;
+color:white;
+}
+#membership article .header h1 strong{
+  font-weight:  900;
+}
+#membership article section {
+  display: flex;
+  flex-wrap: wrap;
+}
+#membership article section .article{
+  text-align: center;
+  margin:1.6em 0;
+  min-width:400px;
+  background:var(--main-color);
+  color:white;
+  transition: all 0.3s;
+}
+#membership article section .article:hover{
+  background:var(--foor-color);
+
+}
+#membership article section .article:nth-child(odd){
+  background:var(--foor-color);
+}
+#membership article section .article:nth-child(odd):hover{
+  background: var(--main-color);
+}
+#membership article section .article .headers{
+  background:white;
+  color:var(--foor-color);
+}
+#membership article section .article .headers h2{
+  padding:1em 0.5em;
+}
+#membership article section .article .body{
+  
 }
