@@ -6,7 +6,8 @@ a{text-decoration: none;}
 :root{--main-color:#DB325A;
       --secound-color:#323232;
       --therd-color:#808080;
-      --foor-color:#323232;}
+      --foor-color:#323232;
+      --foorb-color:#242424;}
 input[type="checkbox"]{display: none;}
 #buttons span{border:solid black;padding:2px;display: inline-block;
             border-width: 0 1px 1px 0;position: relative;top:-3px;}
@@ -16,7 +17,7 @@ input[type="checkbox"]{display: none;}
 #right{ transform: rotate(-45deg);}
 #left{ transform: rotate(135deg);}
 
-/* body{overflow-x:  hidden;} */
+body{overflow-x:  hidden;}
 h4,h3,h2,h1{font-weight: 100;font-size: 1.2rem;}
 p{font-size: .9rem;}
 
@@ -582,9 +583,10 @@ color:white;
   flex-wrap: wrap;
 }
 #membership article section .article{
+
   text-align: center;
-  margin:1.6em 0;
-  min-width:400px;
+  margin:1.6em auto;
+  min-width:360px;
   background:var(--main-color);
   color:white;
   transition: all 0.3s;
@@ -607,5 +609,58 @@ color:white;
   padding:1em 0.5em;
 }
 #membership article section .article .body{
-  
+  padding:1em 0.6em;
+  min-height:400px;
+}
+#membership article section .article .body li{
+  border-bottom:1px solid white;
+  padding:1.2em 0;
+
+}
+#membership article section .article .body a{
+  margin-top:10px;
+  padding:1.4em 2em;
+  text-transform: uppercase;
+  color:white;
+  border: 3px solid var(--main-color);
+  display: inline-block;
+}
+#membership article section .article .body #prix{
+  font-size:1.5rem;
+  font-weight: 900;
+}
+#membership article section .article .body #prix > span{
+  font-size:70px;
+}
+
+#membership article section .article .body #prix div{
+  display: inline-block;
+  margin:0;
+}
+#membership article section .article .body #prix div span{
+  display: block;
+}
+/**FIN Mmemberships***/
+#footer{
+  background:var(--foorb-color);
+  padding: 2em 0;
+}
+#footer .items{
+  display:flex;
+  flex-wrap: wrap;
+}
+#footer .items .item{
+  min-width: 100%;
+}
+#footer .items .item h3{
+  padding:1em 0;
+}
+
+#footer .items .item > ul li{
+  padding:0.5em 0;
+  border: solid white;
+  border-width: 1px 0 1px 0;
+}
+#footer .items .item > ul li span:nth-child(2){
+  float:right;
 }
