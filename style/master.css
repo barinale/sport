@@ -303,7 +303,13 @@ header .boxelemnts section article .item .itm .slider .boxtext .img{
   border-radius: 50%;
   background:var(--main-color);
   float: left;
+  overflow: hidden;
 }
+header .boxelemnts section article .item .itm .slider .boxtext .img img{
+  width:auto;
+  height:100px;
+}
+
 header .boxelemnts section article .item .contact{
   width:100%;
   padding:10px;
@@ -400,17 +406,24 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
 #upcomingEvenets article .items{
   display: flex;
   justify-content: space-around;
+
 }
 #upcomingEvenets article .item{
-  min-width:85%;
+  min-width:calc(100vw/1.5);
   background:white;
   margin:30px 15px;
+
 }
 #upcomingEvenets article .item .img{
   width:100%;
   height:250px;
   background:var(--main-color);
 }
+#upcomingEvenets article .item .img img{
+  height:100%;
+  width:100%;
+}
+
 #upcomingEvenets article .item .info{
 
   }
@@ -474,6 +487,10 @@ color:white;
   border-color: white;
 
 }
+ #group{
+  display: flex;
+  flex-wrap: wrap;
+}
 #trainer article section .item{
   min-height:200px;
   width:100%;
@@ -493,6 +510,11 @@ color:white;
   height:280px;
   background:var(--main-color);
 }
+#trainer article section .item .image img{
+  width:100%;
+  height:100%;
+}
+
 #trainer article section .item .info{
   padding:0.5em 1em;
   color: white;
@@ -527,30 +549,45 @@ border-color: white;}
   width:90%;
 margin:auto;
 text-align: left;
-width:340px;}
+width:100%;}
 #trainerinfo .header {
 color:white;
+
 }
 #trainerinfo .header:hover{
   background:white;
   color:var(--main-color);
 }
+#trainerinfo .categorie {
+  width:100%;
 
+}
+#trainerinfo .categorie .catori{
+min-height: 200px;
+}
 #trainerinfo .categorie .catori .text{
   color:white;
   min-height: 150px;
-
+display: flex;
+justify-content: space-between;
 }
 #trainerinfo .categorie .catori .text .img{
   height:100px;
   width:100px;
   border-radius: 50%;
   background: white;
-  float:left;
+  overflow: hidden;
+
+}
+#trainerinfo .categorie .catori .text .img img{
+  height: 100%;
 }
 #trainerinfo .categorie .catori .text .texts{
-float:right;
+flex-grow: 2;
 width:65%;
+padding-left: 1em;
+
+
 }
 #trainerinfo .categorie .catori .text .texts a{
   padding: 0.4em 1.4em;
@@ -586,7 +623,7 @@ color:white;
 
   text-align: center;
   margin:1.6em auto;
-  min-width:360px;
+  width:100%;
   background:var(--main-color);
   color:white;
   transition: all 0.3s;
@@ -705,4 +742,27 @@ font-size:1rem;
 }
 footer h4 span{
   color:var(--main-color);
+}
+/**media qury**/
+@media (min-width :420px) {
+
+#upcomingEvenets article .item{
+  min-width: 50% ;
+}
+/*******/
+#trainer article section {
+  max-width:700px;
+
+}
+#trainer article section .item{
+  flex-direction: row;
+  max-width: 100%;}
+
+}
+
+@media (min-width :780px) {
+
+#upcomingEvenets article .item{
+  width: 480px ;
+}
 }
