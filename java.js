@@ -30,18 +30,13 @@ if(awesome.getBoundingClientRect().top<headers.offsetHeight){
   awesome.style.opacity="1";
   awesome.style.transform ="translateY("+0+"%)";
 }
-console.log(upcomung.getBoundingClientRect().top)
-console.log(headers.offsetHeight)
+
 if(upcomung.getBoundingClientRect().top<headers.offsetHeight/1.2){
+  if(upcomungitem.style.opacity=="1")
+  {return;}
   upcomungitem.style.opacity="1";
   upcomungitem.style.transform ="translateY("+0+"%)";
-
-}
-
-
-}
-
-)
+}})
 
 /*photolisder*/
 /*lastest News*/
@@ -62,20 +57,103 @@ let counter1 ={news:0}
 const Testimonials = document.querySelector("#Testimonials")
 const item1 = Testimonials.querySelector(".slider");
 const items1 = Testimonials.querySelectorAll(".slider .boxtext");
-const size1 = items[0].offsetWidth;
+const size1 = items1[0].offsetWidth;
 Testimonials.addEventListener("click",(e)=>{
-  if(e.target.getAttribute("id")==right || e.target.getAttribute("id")=="right1"){
+  if(e.target.getAttribute("id")=="right" || e.target.getAttribute("id")=="right1"){
       left(items1,item1,size1,counter2)
       }else if(e.target.getAttribute("id")=="left" ||e.target.getAttribute("id")=="left1"){
       right(items1,item1,size1,counter2)
   }
 })
 let counter2 ={news:2}
+/****/
+const upcoming = document.querySelector("#upcomingEvenets article")
+const item2 = upcoming.querySelector(".items");
+const items2 = upcoming.querySelectorAll(".item");
+let windosize = 0;
+let conter3 = {news:0}
+let arr = [];
+let lastpostion = 0;//
+upcoming.addEventListener("click",(e)=>{
+
+  if(windosize!=window.innerWidth){
+    lastpostion=0;
+    windosize = window.innerWidth;
+    item2.classList.add("notransition");
+    item2.style.transform ="translateX(-"+0+"px)"
+    conter3.news = 0;
+    arr = []
+     items2.forEach((item,i) => {
+    arr.push(item.getBoundingClientRect().left);
+    if(item.getBoundingClientRect().right>windosize){
+      lastpostion++;
+    }
+    });
+    item2.classList.remove("notransition");
+    }
+  if(e.target.getAttribute("id")=="right"||e.target.getAttribute("id")=="right1"){
+    rightslider(item2,conter3);
+  }else if (e.target.getAttribute("id")=="left"||e.target.getAttribute("id")=="left1")
+    leftslider(item2,conter3)
+})
+
+function rightslider(item,counter){
+  if(counter.news>=arr.length-1 || items2[arr.length-1].getBoundingClientRect().right<windosize)
+    counter.news=-1;
+
+  counter.news++;
+  item.style.transform ="translateX(-"+(arr[counter.news]-10)+"px)";
+}
+function leftslider(item,counter){
+  if(counter.news<=0 )
+  {  counter.news=lastpostion+1;}
+  counter.news--;
+  item.style.transform ="translateX(-"+(arr[counter.news])+"px)";
+
+}
+
+/*******/
+const sliderv = document.querySelector("#trainer article section ")
+const sliderpostion = document.querySelector("#trainer article section .sliders")
+
+const item3 = sliderv.querySelector("#trainer article section .items")
+const items3 = sliderv.querySelectorAll(".item");
+const counter4 = {news:0}
+let arr1 =[]
+let windwosize1 = 0;
+sliderv.addEventListener("click",(e)=>{
+  if(windwosize1!=window.innerWidth)
+  {windwosize1=window.innerWidth;
+      items3.forEach((item, i) => {
+    arr1.push(item.getBoundingClientRect().bottom);
+  });}
+
+  if(e.target.getAttribute("id")=="right"||e.target.getAttribute("id")=="right1")
+  rightsliderv();
+  else if(e.target.getAttribute("id").left || e.target.getAttribute("id")=="left1")
+  leftsliderv();
+
+})
+
+function rightsliderv(){
+  item3.style.transform ="translateY(-"+arr1[counter4.news]+"px)";
+  console.log(arr1[counter4.news])
+  console.log(sliderpostion.getBoundingClientRect().bottom)
+  counter4.news++;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 //***/
-
-
-
 function left(items,item,size,counter){
   if(counter.news>=items.length-1){
     item.style.transform="translateX("+size*(0)+"px)";
@@ -84,18 +162,17 @@ function left(items,item,size,counter){
   counter.news++;
   item.style.transform="translateX(-"+size*counter.news+"px)";
 }
-function right(items,item,size,counter){
-    item.style.transition = '0.6s all'
+function right(items,item,size,counter,itemsize){
   if(counter.news<=0){
 item.style.transform="translateX("+size*(items.length-1)+"px)";
 counter.news = items.length;
 }
 counter.news--;
-item.style.transform="translateX(-"+size*counter.news+"px)";
+item.style.transform="translateX(-"+size*(counter.news)+"px)";
 }
   setInterval(function(){
- right(items1,item1,size1,counter2)
- right(items,item,size,counter1)
+  right(items1,item1,size1,counter)
+  right(items,item,size,counter1)
 }, 3000);
 /*****/
 const boxelem = document.querySelector(".boxelemnts .insidebox nav ul");
@@ -109,8 +186,6 @@ boxelem.addEventListener("click",(e)=>{
     if(alink[i].getAttribute('id')=="active1")
       alink[i].removeAttribute("id")
   }
-
-
     e.target.setAttribute("id","active1");
-
 })
+/*testing**/

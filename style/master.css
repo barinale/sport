@@ -41,7 +41,12 @@ p{font-size: .9rem;font-family: 'Open Sans', sans-serif;}
   background: var(--secound-color);
   position: fixed;
   width:100%;
-
+}
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
 /*header*/
 header {
@@ -282,6 +287,7 @@ header .boxelemnts section article .item .itm{
                         ". . . . "
                         ". box box box  ";
   overflow: hidden;
+
 }
 
 header .boxelemnts section article .item .itm .title{
@@ -298,6 +304,7 @@ header .boxelemnts section article .item .itm .slider{
   width:400%;
   box-sizing: border-box;
   justify-content: space-between;
+  transition: 0.6s all;
 }
 header .boxelemnts section article .item .itm .slider .text{
   padding:10px;
@@ -415,14 +422,14 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
 }
 #upcomingEvenets article .items{
   display: flex;
-  justify-content: space-around;
-
+  justify-content: flex-start;
+  width:auto;
 }
 #upcomingEvenets article .item{
-  min-width:calc(100vw/1.5);
+  min-width:260px;
   background:white;
   margin:30px 15px;
-
+/*******************************************/
 }
 #upcomingEvenets article .item .img{
   width:100%;
@@ -486,10 +493,11 @@ color:white;
 #trainer article .header h1 strong{
   font-weight:  900;
 }
-#trainer article section .items{
+#trainer article section .sliders{
   max-height:1000px;
   overflow: hidden;
 }
+
 #trainer article .header #line span:nth-child(1){
  opacity:0.3;
 }
@@ -519,6 +527,7 @@ color:white;
   width:100%;
   height:280px;
   background:var(--main-color);
+  transform: translateY();
 }
 #trainer article section .item .image img{
   width:100%;
@@ -554,6 +563,7 @@ color:white;
 #trainer article section #buttons >div{
   background: var(--main-color);
 border-color: white;}
+input[type="radio"]{display: none;}
 
 #trainerinfo{
   width:90%;
@@ -566,20 +576,23 @@ color:white;
 }
 #trainerinfo .header:hover{
   background:white;
-  color:var(--main-color);
 }
+#trainerinfo .header:hover h1{
+  color:var(--main-color)
+}
+
 #trainerinfo .categorie {
   width:100%;
 
 }
 #trainerinfo .categorie .catori{
-min-height: 200px;
+min-height: 250px;
 }
 #trainerinfo .categorie .catori .text{
   color:white;
   min-height: 150px;
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 #trainerinfo .categorie .catori .text .img{
   height:100px;
@@ -607,6 +620,7 @@ padding-left: 1em;
 text-transform: uppercase;
 font-size: 0.8rem;
 }
+
 /****FIN trainerinfo*******/
 #membership{
 background:var(--foor-color);
@@ -860,9 +874,9 @@ width:50%;
 }
 /**/
 #upcomingEvenets article .items{
-overflow: hidden;}
+}
 #upcomingEvenets article .item{
-min-width:280px;
+min-width:380px;
 display: inline-block;}
 /******/
 #membership article section .article{
@@ -875,8 +889,8 @@ width:350px;
   width:80%;
 }
 #footer .items .item{
-  min-width:240px;
-  max-width: 260px;
+  min-width:220px;
+  max-width: 240px;
   margin: 0px 10px;
 }
 }
