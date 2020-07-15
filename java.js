@@ -109,7 +109,6 @@ function leftslider(item,counter){
   {  counter.news=lastpostion+1;}
   counter.news--;
   item.style.transform ="translateX(-"+(arr[counter.news])+"px)";
-
 }
 
 /*******/
@@ -119,14 +118,26 @@ const sliderpostion = document.querySelector("#trainer article section .sliders"
 const item3 = sliderv.querySelector("#trainer article section .items")
 const items3 = sliderv.querySelectorAll(".item");
 const counter4 = {news:0}
+
 let arr1 =[]
+let lastpostion2 =0;
 let windwosize1 = 0;
+
 sliderv.addEventListener("click",(e)=>{
-  if(windwosize1!=window.innerWidth)
-  {windwosize1=window.innerWidth;
-      items3.forEach((item, i) => {
-    arr1.push(item.getBoundingClientRect().bottom);
-  });}
+
+  if(windwosize1!=sliderpostion.offsetWidth)
+  {windwosize1=sliderpostion.offsetWidth;
+      lastpostion2=0;
+      arr1=[]
+
+      items3.forEach((item) => {
+        arr1.push(item.offsetTop -sliderpostion.offsetTop )
+        if(parseInt(item.offsetTop)+parseInt(item.offsetHeight)<sliderpostion.offsetHeight)
+        {lastpostion2++;
+            console.log(sliderpostion.offsetHeight+"  / "+(parseInt(item.offsetTop)+parseInt(item.offsetHeight))+"/"+parseInt(sliderpostion.offsetTop))}
+      });
+
+}
 
   if(e.target.getAttribute("id")=="right"||e.target.getAttribute("id")=="right1")
   rightsliderv();
@@ -135,14 +146,22 @@ sliderv.addEventListener("click",(e)=>{
 
 })
 
+
 function rightsliderv(){
-  item3.style.transform ="translateY(-"+arr1[counter4.news]+"px)";
-  console.log(arr1[counter4.news])
-  console.log(sliderpostion.getBoundingClientRect().bottom)
+
+  if(counter4.news>=arr1.length-1||counter4.news+lastpostion2>=arr1.length )
+    counter4.news=-1;
   counter4.news++;
+  item3.style.transform ="translateY(-"+arr1[counter4.news]+"px)";
 }
 
+function leftsliderv(){
 
+    if(counter4.news <=0 )
+      counter4.news=items3.length-lastpostion2+1 ;
+      counter4.news--;
+      item3.style.transform ="translateY(-"+arr1[counter4.news]+"px)";
+}
 
 
 
@@ -170,10 +189,10 @@ counter.news = items.length;
 counter.news--;
 item.style.transform="translateX(-"+size*(counter.news)+"px)";
 }
-  setInterval(function(){
-  right(items1,item1,size1,counter)
-  right(items,item,size,counter1)
-}, 3000);
+//   setInterval(function(){
+//   right(items1,item1,size1,counter)
+//   right(items,item,size,counter1)
+// }, 3000);
 /*****/
 const boxelem = document.querySelector(".boxelemnts .insidebox nav ul");
 const alink = boxelem.querySelectorAll("li a")
