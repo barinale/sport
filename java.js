@@ -112,64 +112,142 @@ function leftslider(item,counter){
 }
 
 /*******/
-const sliderv = document.querySelector("#trainer article section ")
-const sliderpostion = document.querySelector("#trainer article section .sliders")
+// const sliderv = document.querySelector("#trainer article section ")
+// const sliderpostion = document.querySelector("#trainer article section .sliders")
+//
+// const item3 = sliderv.querySelector("#trainer article section .items")
+// const items3 = sliderv.querySelectorAll(".item");
+// const counter4 = {news:0}
+//
+// let arr1 =[]
+// let lastpostion2 =0;
+// let windwosize1 = 0;
+//
+// sliderv.addEventListener("click",(e)=>{
+//
+//   if(windwosize1!=sliderpostion.offsetWidth)
+//   {windwosize1=sliderpostion.offsetWidth;
+//       lastpostion2=0;
+//       arr1=[]
+//       var rect = item.getBoundingClientRect();
+// console.log(rect.top, rect.right, rect.bottom, rect.left);
+//       items3.forEach((item) => {
+//          arr1.push(item.offsetTop -sliderpostion.offsetTop )
+//       //  arr1.push(rect.top-sliderpostion.getBoundingClientRect().top)
+//       console.log(item.offsetTop -sliderpostion.offsetTop+"**********")
+//         if(parseInt(item.offsetTop)+parseInt(item.offsetHeight)<sliderpostion.offsetHeight)
+//         {lastpostion2++;
+//             console.log(sliderpostion.offsetHeight+"  / "+(parseInt(item.offsetTop)+parseInt(item.offsetHeight))+"/"+parseInt(sliderpostion.offsetTop))}
+//       });
+//
+// }
+//
+//   if(e.target.getAttribute("id")=="right"||e.target.getAttribute("id")=="right1")
+//   rightsliderv();
+//   else if(e.target.getAttribute("id").left || e.target.getAttribute("id")=="left1")
+//   leftsliderv();
+//
+// })
+//
+//
+// function rightsliderv(){
+//
+//   if(counter4.news>=arr1.length-1||counter4.news+lastpostion2>=arr1.length )
+//     counter4.news=-1;
+//   counter4.news++;
+//   item3.style.transform ="translateY(-"+arr1[counter4.news]+"px)";
+// }
+//
+// function leftsliderv(){
+//
+//     if(counter4.news <=0 )
+//       counter4.news=items3.length-lastpostion2+1 ;
+//       counter4.news--;
+//       item3.style.transform ="translateY(-"+arr1[counter4.news]+"px)";
+// }
+//
+//
 
-const item3 = sliderv.querySelector("#trainer article section .items")
-const items3 = sliderv.querySelectorAll(".item");
-const counter4 = {news:0}
 
-let arr1 =[]
-let lastpostion2 =0;
-let windwosize1 = 0;
+// console.log(itemsSlider.offsetTop);
+// itemSlider.forEach((item, i) => {
+//   console.log(item.offsetTop-itemsSlider.offsetTop)
+// });
+// itemsSlider.style.marginTop=-1100+"px";
+class sliderObject{
+  constructor(item,items,parent){
+    this.item = item;
+    this.items=items;
+    this.parent = parent;
+    this.Array= this.calcposition();
+    this.itemShow =0;
+    this.calcItemShow();
+    this.sizeSpace=0;
+    this.calculspace();
+    this.position=0;
+  }
+  //method to setposition of itemlive
+  calcposition(){
+    let arrayP = [];
 
-sliderv.addEventListener("click",(e)=>{
+    this.item.forEach((itemm, i) => {
+      arrayP.push((itemm.offsetTop+itemm.offsetHeight)-this.parent.offsetTop);
+    });
+    return arrayP;
+  }
+  //calcul the space between item
+  calculspace(){
+  this.sizeSpace= this.Array[1]-(this.Array[0]+this.item[0].offsetHeight);
+  }
+  // method to calcul how item shows
+  calcItemShow(){
+    this.itemShow=0;
+    this.Array.forEach((item, i) => {
+      if(item<this.parent.offsetHeight)
+      this.itemShow++;
+    });
+  }
+  buttonUp(){
 
-  if(windwosize1!=sliderpostion.offsetWidth)
-  {windwosize1=sliderpostion.offsetWidth;
-      lastpostion2=0;
-      arr1=[]
+      if(this.position +this.itemShow >=this.Array.length){
+        this.position=0;
 
-      items3.forEach((item) => {
-        arr1.push(item.offsetTop -sliderpostion.offsetTop )
-        if(parseInt(item.offsetTop)+parseInt(item.offsetHeight)<sliderpostion.offsetHeight)
-        {lastpostion2++;
-            console.log(sliderpostion.offsetHeight+"  / "+(parseInt(item.offsetTop)+parseInt(item.offsetHeight))+"/"+parseInt(sliderpostion.offsetTop))}
-      });
+        }
+        else{
+          console.log(this.position);
+          this.position+=this.itemShow;}
+          if(this.position==0)
+          this.items.style.marginTop="-0px";
+          else
+          this.items.style.marginTop="-"+(this.Array[this.position-1]-Math.ceil(this.sizeSpace/2))+"px";
+      console.log(this.Array[this.position-1]-Math.ceil(this.sizeSpace/2))
+  }
+  buttonButton(){
+    if(this.position==0){
+      this.position=this.Array.length-1;
+      this.items.style.marginTop="-0px";
+    }else{
+    console.log(this.position);
+      this.position-=this.itemShow;
+    this.items.style.marginTop="-"+(this.Array[this.position]+Math.ceil(this.sizeSpace/2))+"px";
+    console.log((this.Array[this.position]-Math.ceil(this.sizeSpace/2)));
+}
+  }
 
 }
+const boxSlider = document.querySelector("#trainer article section .sliders");
+const itemsSlider = boxSlider.querySelector(".items");
+const itemSlider = boxSlider.querySelectorAll(".item");
+  const sliderone = new sliderObject(itemSlider,itemsSlider,boxSlider);
+boxSlider.parentNode.addEventListener("click",(e)=>{
+if(e.target.getAttribute('id')=='right' || e.target.getAttribute('id')=='right1' ){
+  sliderone.buttonButton();
+}else if(e.target.getAttribute('id')=='left' || e.target.getAttribute('id')=='left1'){
+  sliderone.buttonUp();
+}
 
-  if(e.target.getAttribute("id")=="right"||e.target.getAttribute("id")=="right1")
-  rightsliderv();
-  else if(e.target.getAttribute("id").left || e.target.getAttribute("id")=="left1")
-  leftsliderv();
 
 })
-
-
-function rightsliderv(){
-
-  if(counter4.news>=arr1.length-1||counter4.news+lastpostion2>=arr1.length )
-    counter4.news=-1;
-  counter4.news++;
-  item3.style.transform ="translateY(-"+arr1[counter4.news]+"px)";
-}
-
-function leftsliderv(){
-
-    if(counter4.news <=0 )
-      counter4.news=items3.length-lastpostion2+1 ;
-      counter4.news--;
-      item3.style.transform ="translateY(-"+arr1[counter4.news]+"px)";
-}
-
-
-
-
-
-
-
-
 
 
 //***/

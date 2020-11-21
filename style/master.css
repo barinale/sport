@@ -508,12 +508,19 @@ color:white;
  #group{
   display: flex;
   flex-wrap: wrap;
+
+}
+#trainer article section .sliders{
+  min-height:200px;
+  height:60vh;
 }
 #trainer article section .items{
   transition: 0.6s all;
+
 }
 #trainer article section .item{
-  min-height:200px;
+  min-height:100px;
+
   width:100%;
   background:var(--foor-color);
   display: flex;
@@ -527,8 +534,9 @@ color:white;
   color:var(--foor-color);
 }
 #trainer article section .item .image{
+
   width:100%;
-  height:280px;
+  height:100px;
   background:var(--main-color);
   transform: translateY();
 }
