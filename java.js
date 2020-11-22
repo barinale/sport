@@ -185,9 +185,12 @@ class sliderObject{
     this.sizeSpace=0;
     this.calculspace();
     this.position=0;
+    this.windowssize;
   }
   //method to setposition of itemlive
   calcposition(){
+    //set windows size
+    this.windowssize=[this.items.offsetHeight,this.items.offsetWidth];
     let arrayP = [];
 
     this.item.forEach((itemm, i) => {
@@ -197,7 +200,8 @@ class sliderObject{
   }
   //calcul the space between item
   calculspace(){
-  this.sizeSpace= this.Array[1]-(this.Array[0]+this.item[0].offsetHeight);
+  this.sizeSpace= (this.item[1].offsetTop)-(this.item[0].offsetTop+this.item[0].offsetHeight);
+
   }
   // method to calcul how item shows
   calcItemShow(){
@@ -208,7 +212,15 @@ class sliderObject{
     });
   }
   buttonUp(){
+      if(this.windowssize[0]!=this.items.offsetHeight || this.windowssize[1]!=this.items.offsetWidth){
+        this.calcposition();
+        this.calcItemShow();
+        this.calculspace();
+        console.log("test");
 
+        console.log(this.windowssize[0]+" -- "+this.windowssize[1])
+        console.log(this.items.offsetHeight+"--"+this.items.offsetWidth)
+      }
       if(this.position +this.itemShow >=this.Array.length){
         this.position=0;
 
@@ -223,9 +235,11 @@ class sliderObject{
       console.log(this.Array[this.position-1]-Math.ceil(this.sizeSpace/2))
   }
   buttonButton(){
-    if(this.position==0){
+    if(this.position<=0){
       this.position=this.Array.length-1;
       this.items.style.marginTop="-0px";
+      console.log("---");
+      console.log(this.position +" ***"+this.Array[this.position]);
     }else{
     console.log(this.position);
       this.position-=this.itemShow;
@@ -241,9 +255,9 @@ const itemSlider = boxSlider.querySelectorAll(".item");
   const sliderone = new sliderObject(itemSlider,itemsSlider,boxSlider);
 boxSlider.parentNode.addEventListener("click",(e)=>{
 if(e.target.getAttribute('id')=='right' || e.target.getAttribute('id')=='right1' ){
-  sliderone.buttonButton();
-}else if(e.target.getAttribute('id')=='left' || e.target.getAttribute('id')=='left1'){
   sliderone.buttonUp();
+}else if(e.target.getAttribute('id')=='left' || e.target.getAttribute('id')=='left1'){
+  sliderone.buttonButton();
 }
 
 
