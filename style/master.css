@@ -1,7 +1,9 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-*{padding:0;margin:0;box-sizing: border-box;font-family: 'Open Sans', sans-serif;}
+*{padding:0;margin:0;-webkit-box-sizing: border-box;box-sizing: border-box;font-family: 'Open Sans', sans-serif;}
 ul{list-style: none;}
 a{text-decoration: none;}
 .contenair{width:95%;margin:auto;}
@@ -16,8 +18,8 @@ input[type="checkbox"]{display: none;}
 #buttons >div:hover{background: var(--main-color);}
 #buttons >div:hover span{border-color: white;}
 #buttons > div{display: inline-block;border: 3px solid var(--main-color);padding:3px 8px;}
-#right{ transform: rotate(-45deg);}
-#left{ transform: rotate(135deg);}
+#right{ -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg);}
+#left{ -webkit-transform: rotate(135deg); -ms-transform: rotate(135deg); transform: rotate(135deg);}
 
 body{overflow-x:  hidden;}
 h4,h3,h2,h1{font-weight: 100;font-size: 1.2rem;}
@@ -33,10 +35,14 @@ p{font-size: .9rem;font-family: 'Open Sans', sans-serif;}
   position: absolute;
   left:50%;
   top:50%;z-index: 2;
-  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
 }
 /**fir javascript*/
 .headerfixed{
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
   background: var(--secound-color);
   position: fixed;
@@ -44,7 +50,6 @@ p{font-size: .9rem;font-family: 'Open Sans', sans-serif;}
 }
 .notransition {
   -webkit-transition: none !important;
-  -moz-transition: none !important;
   -o-transition: none !important;
   transition: none !important;
 }
@@ -88,9 +93,15 @@ header .header{
 
 }
 header .header .contentheader{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   height:80px;
 
 }
@@ -112,7 +123,10 @@ header .header .nav,header .header .title{
     z-index:2;
 }
 header .header .nav{
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display:-webkit-box;
+  display:-ms-flexbox;
   display:flex;
   position: relative;
 }
@@ -120,7 +134,9 @@ header .header .nav label[for="menubar"] {
   width:35px;
   height:20px;
   display: inline-block;
-  order: 2;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 header .header .nav label[for="menubar"] span{
   display:block;
@@ -133,6 +149,8 @@ header .header .nav label[for="menubar"] span{
 header .header .nav input:checked + nav{
   height:280px;
   opacity:1;
+  -webkit-transition: 0.5s all;
+  -o-transition: 0.5s all;
   transition: 0.5s all;
   position: absolute;
 
@@ -142,10 +160,13 @@ header .header .nav nav{
   right:35px;
   top:50px;
   padding-left:0.4em;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   height:0px;
   opacity:0;
   overflow: hidden;
+  -webkit-transition: 0.5s all;
+  -o-transition: 0.5s all;
   transition: 0.5s all;
   width: 200px;
   z-index: 15;
@@ -172,6 +193,8 @@ header .header .nav nav > ul #active{
 }
 header .header .nav nav > ul a:hover{
   color:var(--main-color);
+  -webkit-transition: 0.3s all;
+  -o-transition: 0.3s all;
   transition: 0.3s all;
 }
 header .header .nav nav > ul *{
@@ -188,7 +211,9 @@ header .textheader{
   text-align: center;
   top:50%;
   left:50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   min-width:350px;
   min-height:10px;
   text-transform: uppercase;
@@ -215,11 +240,15 @@ header .textheader .text a{
     border: 3px solid var(--main-color);
     display: inline-block;
     color:white;
+    -webkit-transition:  .3s background;
+    -o-transition:  .3s background;
     transition:  .3s background;
 
 }
 header .textheader .text a:hover{
   background:var(--main-color);
+  -webkit-transition:  .3s background;
+  -o-transition:  .3s background;
   transition:  .3s background;
 }
 
@@ -230,7 +259,9 @@ z-index: 3;
 background:white;
 position: absolute;
 bottom: 0;
-transform: translateY(90%);
+-webkit-transform: translateY(90%);
+    -ms-transform: translateY(90%);
+        transform: translateY(90%);
 overflow: hidden;
 }
 header .boxelemnts .insidebox{
@@ -240,9 +271,12 @@ header .boxelemnts nav{
   width: 100%;
 }
 header .boxelemnts nav ul{
+  display:-webkit-box;
+  display:-ms-flexbox;
   display:flex;
     width:100%;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     background:var(--secound-color);
 
 }
@@ -256,11 +290,15 @@ header .boxelemnts nav ul li a{
   display: inline-block;
   width:100%;
   text-align: center;
+  -webkit-transition: 0.3s background;
+  -o-transition: 0.3s background;
   transition: 0.3s background;
   font-size: 1.1em;
 }
 header .boxelemnts nav ul li a:hover{
   background:var(--main-color);
+  -webkit-transition: 0.3s background;
+  -o-transition: 0.3s background;
   transition: 0.3s background;
 }
 header .boxelemnts nav ul li #active1{
@@ -272,18 +310,25 @@ header .boxelemnts section{
 }
 
 header .boxelemnts section article .item{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width:100%;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   padding:5px;
 }
 header .boxelemnts section article .item .itm{
   width:100%;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns:1em 1fr 1fr 1fr ;
   grid-template-columns:1em 1fr 1fr 1fr ;
+  -ms-grid-rows: (minmax(20px,auto))[3];
   grid-template-rows: repeat(3,minmax(20px,auto));
-  grid-template-areas: " .title . button "
+      grid-template-areas: " .title . button "
                         ". . . . "
                         ". box box box  ";
   overflow: hidden;
@@ -294,16 +339,28 @@ header .boxelemnts section article .item .itm .title{
   grid-area: title;
 }
 header .boxelemnts section article .item .itm .buttons{
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
   grid-area: button;
 }
 header .boxelemnts section article .item .itm .slider{
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
   grid-area: box;
 }
 header .boxelemnts section article .item .itm .slider{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width:400%;
-  box-sizing: border-box;
-  justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: 0.6s all;
+  -o-transition: 0.6s all;
   transition: 0.6s all;
 }
 header .boxelemnts section article .item .itm .slider .text{
@@ -421,8 +478,12 @@ header .boxelemnts section article .item .contact .boxinfo div:nth-child(3){
   letter-spacing: -2px;
 }
 #upcomingEvenets article .items{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   width:auto;
 }
 #upcomingEvenets article .item{
@@ -506,8 +567,11 @@ color:white;
 
 }
  #group{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 
 }
 #trainer article section .sliders{
@@ -515,6 +579,8 @@ color:white;
   height:60vh;
 }
 #trainer article section .items{
+  -webkit-transition: 0.6s all;
+  -o-transition: 0.6s all;
   transition: 0.6s all;
 
 }
@@ -523,8 +589,13 @@ color:white;
 
   width:100%;
   background:var(--foor-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin:1.5em 0;
 }
 #trainer article section .item:nth-child(odd){
@@ -538,7 +609,9 @@ color:white;
   width:100%;
   height:100px;
   background:var(--main-color);
-  transform: translateY();
+  -webkit-transform: translateY();
+      -ms-transform: translateY();
+          transform: translateY();
 }
 #trainer article section .item .image img{
   width:100%;
@@ -563,11 +636,15 @@ color:white;
   padding:1em 0em;
 }
 #trainer article section #buttons #right{
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
   border-color: var(--foor-color);
 }
 #trainer article section #buttons #left{
-  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+      -ms-transform: rotate(-135deg);
+          transform: rotate(-135deg);
   border-color: var(--foor-color);
 }
 #trainer article section #buttons >div:hover{background:white;}
@@ -602,8 +679,12 @@ min-height: 250px;
 #trainerinfo .categorie .catori .text{
   color:white;
   min-height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 #trainerinfo .categorie .catori .text .img{
   height:100px;
@@ -617,7 +698,9 @@ min-height: 250px;
   height: 100%;
 }
 #trainerinfo .categorie .catori .text .texts{
-flex-grow: 2;
+-webkit-box-flex: 2;
+    -ms-flex-positive: 2;
+        flex-grow: 2;
 width:65%;
 padding-left: 1em;
 
@@ -651,8 +734,11 @@ color:white;
   font-weight:  900;
 }
 #membership article section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 #membership article section .article{
 
@@ -661,6 +747,8 @@ color:white;
   width:100%;
   background:var(--main-color);
   color:white;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 #membership article section .article:hover{
@@ -718,8 +806,11 @@ color:white;
   padding: 2em 0;
 }
 #footer .items{
+  display:-webkit-box;
+  display:-ms-flexbox;
   display:flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 
 }
 #footer .items .item{
@@ -791,7 +882,10 @@ footer h4 span{
 
 }
 #trainer article section .item{
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   max-width: 100%;
 }
 
@@ -809,10 +903,13 @@ footer h4 span{
   background: var(--foor-color);
 }
 header .header .contentheader{
-  align-content:center;
+  -ms-flex-line-pack:center;
+      align-content:center;
 }
 header .header .nav{
-  flex-grow: 2;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
   display: inline-block;
 }
 header .header .nav label[for="menubar"]{
@@ -833,11 +930,19 @@ header .header .nav nav:before{
   content:none;
 }
 header .header .nav nav > ul{
-  transform: translate(0%,-50%);
+  -webkit-transform: translate(0%,-50%);
+      -ms-transform: translate(0%,-50%);
+          transform: translate(0%,-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 80px;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   overflow: visible;
 
 }
@@ -853,6 +958,8 @@ top:69px;
 left:0;
 background:var(--foorb-color);
 overflow: hidden;
+-webkit-transition: 1s all;
+-o-transition: 1s all;
 transition: 1s all;
 min-width: 150px;
 
@@ -874,7 +981,9 @@ header .boxelemnts{
 width:90%;
 left:50%;
 bottom:-200px;
-transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
 }
 header .boxelemnts section article .item .itm{
 width:50%;
